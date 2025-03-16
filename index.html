@@ -3,10 +3,169 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0;url=website.html" />
-    <title>Redirecting...</title>
+    <title>Kiuoplo's Shader Comparison</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css"
+    />
+    <style>
+      body {
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #222;
+        color: white;
+        padding-bottom: 10%;
+      }
+      .comparison-container {
+        justify-content: center;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .navbar {
+        background-color: #333;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+      }
+      .navbar button {
+        background: none;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .navbar button:hover {
+        background-color: #555;
+      }
+      .navbar button:active {
+        background-color: #444;
+      }
+      .tab-content {
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .active {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
-    <p>If you are not redirected, <a href="website.html">click here</a>.</p>
+    <h1>Kiuoplo's Shader Comparison</h1>
+
+    <div class="navbar">
+      <button onclick="showTab('tab1')">Photon vs Kappa</button>
+      <button onclick="showTab('tab2')">Vanilla vs Shaders</button>
+    </div>
+
+    <!-- First Tab (Photon vs Kappa) -->
+
+    <div id="tab1" class="tab-content active">
+      <h2>Photon VS Kappa</h2>
+
+      <h3>Castle</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Photon.Kappa/Castle_Photon.png" data-label="Photon" />
+          <img src="Photon.Kappa/Castle_Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+
+      <h3>Court</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Photon.Kappa/Court_Photon.png" data-label="Photon" />
+          <img src="Photon.Kappa/Court_Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+
+      <h3>Forest</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Photon.Kappa/Forest_Photon.png" data-label="Photon" />
+          <img src="Photon.Kappa/Forest_Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+
+      <h3>Hagrid's Hut</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Photon.Kappa/Hagrid_Photon.png" data-label="Photon" />
+          <img src="Photon.Kappa/Hagrid_Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+
+      <h3>Hall</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Photon.Kappa/Hall_Photon.png" data-label="Photon" />
+          <img src="Photon.Kappa/Hall_Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+      <h2>Vanilla VS Shaders</h2>
+
+      <h3>Bliss</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Hagrid.ALL/Vanilla.png" data-label="Vanilla" />
+          <img src="Hagrid.ALL/Bliss.png" data-label="Bliss" />
+        </div>
+      </div>
+
+      <h3>Kappa</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Hagrid.ALL/Vanilla.png" data-label="Vanilla" />
+          <img src="Hagrid.ALL/Kappa.png" data-label="Kappa" />
+        </div>
+      </div>
+
+      <h3>Photon</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Hagrid.ALL/Vanilla.png" data-label="Vanilla" />
+          <img src="Hagrid.ALL/Photon.png" data-label="Photon" />
+        </div>
+      </div>
+
+      <h3>Solas</h3>
+      <div class="comparison-container">
+        <div class="juxtapose">
+          <img src="Hagrid.ALL/Vanilla.png" data-label="Vanilla" />
+          <img src="Hagrid.ALL/Solas.png" data-label="Solas" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.js"></script>
+    <script>
+      function showTab(tabId) {
+        document.querySelectorAll(".tab-content").forEach((div) => {
+          div.classList.remove("active");
+        });
+
+        document.getElementById(tabId).classList.add("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        showTab("tab1");
+      });
+    </script>
   </body>
 </html>
